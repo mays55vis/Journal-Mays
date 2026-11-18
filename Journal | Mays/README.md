@@ -23,7 +23,7 @@ Journal lets users write and organize their personal diary entries in one place.
 |---|---|
 | SwiftUI Layout | `VStack`, `HStack`, `ZStack`, `List` |
 | Navigation & Toolbar | `NavigationStack`, `.sheet`, `.toolbar` |
-| State Management | `@State`, `@Binding`, `@ObservedObject`, `@StateObject` |
+| State Management | `@State`, `@ObservedObject`, `@StateObject` |
 | MVVM Pattern | `Entry` (Model), `JournalViewModel` (ViewModel), Views |
 | Search & Filter | `filteredEntries` in the ViewModel |
 | List Interactions | `.swipeActions`, discard and delete alerts |
