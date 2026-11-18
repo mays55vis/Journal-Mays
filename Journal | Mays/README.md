@@ -1,4 +1,4 @@
-# Journal
+# Journal📝
 
 A simple journaling app for iOS, built with SwiftUI using the MVVM pattern.
 
@@ -17,7 +17,7 @@ Journal lets users write and organize their personal diary entries in one place.
 - **Swipe to delete** with a confirmation alert.
 - **Search and sort** journals by title, entry date, or bookmark.
 
-## What I Learned
+## What I Learned🤔
 
 | Topic | Where it is used |
 |---|---|
