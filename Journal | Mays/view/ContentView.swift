@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel: JournalViewModel
-    @AppStorage("isDarkMode") private var isDarkMode = true
 
     init(viewModel: JournalViewModel = JournalViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -27,10 +26,6 @@ struct ContentView: View {
                                 }
                                 Button("Sort by Entry Date") {
                                     viewModel.sortOption = .date
-                                }
-                                Divider()
-                                Button(isDarkMode ? "Light Mode" : "Dark Mode") {
-                                    isDarkMode.toggle()
                                 }
                             } label: {
                                 Image(systemName: "line.3.horizontal.decrease")
@@ -105,8 +100,7 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
                     TextField("Search", text: $viewModel.searchText)
-                    Image(systemName: "mic.fill")
-                        .foregroundStyle(.secondary)
+
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 14)
@@ -118,12 +112,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
-                    Button("Done") {
-                        UIApplication.shared.sendAction(
-                            #selector(UIResponder.resignFirstResponder),
-                            to: nil, from: nil, for: nil
-                        )
-                    }
+
                 }
             }
         }

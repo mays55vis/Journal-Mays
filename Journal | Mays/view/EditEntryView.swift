@@ -35,12 +35,20 @@ struct EditEntryView: View {
                         }
                     } label: {
                         Image(systemName: "xmark")
-                            .font(.system(size: 18, weight: .regular))
+                            .font(.system(size: 18, weight: .light))
                             .foregroundStyle(.primary)
                             .frame(width: 44, height: 44)
-                            .background(Color(.systemGray5))
+                            .background(Color(.systemBackground))
                             .clipShape(Circle())
+                            .glassEffect(
+                                in:Circle()
+                            )
+
+                            .overlay(
+                                Circle().stroke(Color.gray.opacity(0.35), lineWidth: 1)
+                            )
                     }
+                    .buttonStyle(.plain)
 
                     Spacer()
 
@@ -49,30 +57,36 @@ struct EditEntryView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "checkmark")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .regular))
+                            .foregroundStyle(Color(.systemBackground))
                             .frame(width: 44, height: 44)
                             .background(Color.primaryAccent)
                             .clipShape(Circle())
                     }
+                    .buttonStyle(.plain)
                     .disabled(title.isEmpty)
                     .opacity(title.isEmpty ? 0.4 : 1)
                 }
 
                 TextField("Title", text: $title)
-                    .font(.headingM)
+                    .font(.headingL)
+                    .padding(.top, 8)
 
                 Text(entry.date.formatted(.dateTime.day(.twoDigits).month(.twoDigits).year()))
-                    .font(.captionS)
+                    .font(.captionM)
                     .foregroundStyle(.secondary)
 
                 TextEditor(text: $text)
-                    .font(.bodyM)
+                    .font(.bodyL)
                     .scrollContentBackground(.hidden)
                     .padding(.horizontal, -5)
+                    .padding(.top, 12)
             }
-            .padding(24)
+            .padding(.horizontal, 24)
+            .padding(.top, 28)
         }
+        .tint(.primaryAccent)
+        .presentationDragIndicator(.visible)
         .alert(
             "Are you sure you want to discard changes on this journal?",
             isPresented: $showDiscardAlert
