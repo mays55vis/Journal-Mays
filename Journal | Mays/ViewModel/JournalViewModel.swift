@@ -19,7 +19,10 @@ class JournalViewModel: ObservableObject {
         var result = entries
 
         if !searchText.isEmpty {
-            result = result.filter { $0.title.contains(searchText) }
+            result = result.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                $0.text.localizedCaseInsensitiveContains(searchText)
+            }
         }
 
         switch sortOption {

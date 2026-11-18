@@ -13,6 +13,10 @@ struct AddEntryView: View {
         !title.isEmpty || !text.isEmpty
     }
 
+    private var canSave: Bool {
+        !title.isEmpty && !text.isEmpty
+    }
+
     var body: some View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
@@ -52,8 +56,8 @@ struct AddEntryView: View {
                             .clipShape(Circle())
                     }
                     .buttonStyle(.plain)
-                    .disabled(title.isEmpty)
-                    .opacity(title.isEmpty ? 0.4 : 1)
+                    .disabled(!canSave)
+                    .opacity(canSave ? 1 : 0.4)
                 }
 
                 TextField("", text: $title, prompt: Text("Title").foregroundStyle(.secondary))

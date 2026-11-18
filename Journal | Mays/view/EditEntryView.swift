@@ -21,6 +21,10 @@ struct EditEntryView: View {
         title != entry.title || text != entry.text
     }
 
+    private var canSave: Bool {
+        !title.isEmpty && !text.isEmpty
+    }
+
     var body: some View {
         ZStack {
             Color(.secondarySystemBackground).ignoresSafeArea()
@@ -40,10 +44,6 @@ struct EditEntryView: View {
                             .frame(width: 44, height: 44)
                             .background(Color(.systemBackground))
                             .clipShape(Circle())
-                            .glassEffect(
-                                in:Circle()
-                            )
-
                             .overlay(
                                 Circle().stroke(Color.gray.opacity(0.35), lineWidth: 1)
                             )
@@ -64,8 +64,8 @@ struct EditEntryView: View {
                             .clipShape(Circle())
                     }
                     .buttonStyle(.plain)
-                    .disabled(title.isEmpty)
-                    .opacity(title.isEmpty ? 0.4 : 1)
+                    .disabled(!canSave)
+                    .opacity(canSave ? 1 : 0.4)
                 }
 
                 TextField("Title", text: $title)
