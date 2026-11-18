@@ -1,4 +1,4 @@
-# Journal
+# Journal📝
 
 A simple journaling app for iOS, built with SwiftUI using the MVVM pattern.
 
@@ -17,13 +17,13 @@ Journal lets users write and organize their personal diary entries in one place.
 - **Swipe to delete** with a confirmation alert.
 - **Search and sort** journals by title, entry date, or bookmark.
 
-## What I Learned
+## What I Learned🤔
 
 | Topic | Where it is used |
 |---|---|
 | SwiftUI Layout | `VStack`, `HStack`, `ZStack`, `List` |
 | Navigation & Toolbar | `NavigationStack`, `.sheet`, `.toolbar` |
-| State Management | `@State`, `@Binding`, `@ObservedObject`, `@StateObject` |
+| State Management | `@State`, `@ObservedObject`, `@StateObject` |
 | MVVM Pattern | `Entry` (Model), `JournalViewModel` (ViewModel), Views |
 | Search & Filter | `filteredEntries` in the ViewModel |
 | List Interactions | `.swipeActions`, discard and delete alerts |
